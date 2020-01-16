@@ -1,0 +1,19 @@
+type Todo {
+  id: ID! @fake(type: number)
+  text: String! @fake(type: lorem, options: {loremSize: sentence})
+  isDone: Boolean! @examples(values: [true, false])
+}
+
+type Query {
+  todos: [Todo!]! @listLength(min: 2, max: 8)
+}
+
+input NewTodo {
+  text: String!
+}
+
+type Mutation {
+  createTodo(input: NewTodo!): Todo!
+	updateTodoDone(id: ID!, isDone: Boolean!): Todo!
+  deleteTodo(id: ID!): Todo!
+}

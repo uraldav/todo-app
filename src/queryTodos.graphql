@@ -1,0 +1,7 @@
+query ListTodo{
+    todos{
+        id
+        text
+        isDone
+    }
+}
